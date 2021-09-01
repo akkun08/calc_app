@@ -6,7 +6,7 @@
       <hr />
       <div>
         <div class="form-group">
-          <label for="">Formula:</label>
+          <label>Formula:</label>
           <textarea class="form-control mb-2" v-model="fomula"></textarea>
         </div>
         <div class="text-center">
@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      message: "Enter experssion",
+      message: "Enter expression:",
       fomula: "0",
     };
   },
@@ -36,13 +36,13 @@ export default {
       let fn = "";
       for (let n in arr) {
         if (arr[n].trim() != "") {
-          fn += "let" + arr[n] + ";";
+          fn += "let " + arr[n] + ";";
         }
       }
-      fn += "return" + last + ";";
-      let exp = "function f(){" + fn + "}f();";
+      fn += "return " + last + ";";
+      let exp = "function f(){" + fn + "} f();";
       let ans = eval(exp);
-      this.message = "answer:" + ans;
+      this.message = "answer: " + ans;
       let re = arr.join(";").trim();
       if (re != "") {
         re += ";";
